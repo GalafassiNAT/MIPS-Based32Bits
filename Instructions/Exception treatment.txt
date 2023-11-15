@@ -1,0 +1,18 @@
+Tratamento de exceção
+mfc0 $k0    100010 00000 11010 0000 0000 0000 0000 | 0x881a0000
+
+
+slt $k1, $k0, $0
+beq $k1, $0, POSITIVO
+Negativo:
+addi $k0, $0, 0x7fff
+sll $k0, $k0, 16
+addi $k0, $k0, 0xffff
+mtc0 $k0
+rfe
+
+Positivo:
+addi $k0, $0, 0x8000
+sll $k0, $k0, 16
+mtc0 $k0
+rfe
