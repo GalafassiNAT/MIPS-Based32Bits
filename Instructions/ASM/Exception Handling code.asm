@@ -1,3 +1,5 @@
+# Example of the Code of exception handling.
+
 
 mfc0 $k0
 slt $k1, $k0, $0
