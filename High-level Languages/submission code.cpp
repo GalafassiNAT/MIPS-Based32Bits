@@ -18,10 +18,10 @@ int main(int* argc, char** argv){
 	for(int i = 0; i < b; i++){
 		for(int j = 0; j < a; j++){
 			c += c;
-			if(c == 640)
+			if(c == 80)
 				break;
 		}
-		if(c == 640)
+		if(c == 80)
 			break;
 	}
 	int d = ASubDobroB(c, a);
