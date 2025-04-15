@@ -83,7 +83,7 @@ The ALU is a unit that performs the arithmetic and logic operations. It has 4 in
 As for the outputs, we have:
 - Result: The result of the operation.
 - Zero: A flag that indicates if the result is zero.
-- Overflow: A flag that indicates if the result has caused an overflow. It have an AND gate connect to a Branch flag, to not cause an exception when the branch instruction is executed.
+- Overflow: A flag that indicates if the result has caused an overflow. It has an AND gate connect to a Branch flag, to not cause an exception when the branch instruction is executed.
 
 The ALU in this architecture can perform the following operations:
 
@@ -121,13 +121,13 @@ Overflow cases for SUB:
 ![ALU External](/Images/ALU%20External.png)
 
 ## Data Memory:
-The Data Memory is a RAM memory that stores the data of the program. It is a 32 bits memory, where each data is stored in a 32 bits address. The data memory is read and written in each cycle, and the data that is stored in the address pointed by the ALU is sent to the Register's File. Like the Instruction memory due to **limitations** of the logisim software, the memories that it provides has only 24 bits of address, so to deal with this problem, we used two memories, where the 2nd memory would only be selected at the 25th bit, in this way, we can store the data in a number bigger than 24 bits addresses. It also has a shift of 2 bits. 
+The Data Memory is a RAM memory that stores the data of the program. It is a 32 bits memory, where each data is stored in a 32 bits address. The data memory is read and written in each cycle, and the data that is stored in the address pointed by the ALU is sent to the Register's File. Like the Instruction memory, due to **limitations** of the logisim software, the memories that it provides has only 24 bits of address, so to deal with this problem, we used two memories, where the 2nd memory would only be selected at the 25th bit, this way, we can store the data in a number bigger than 24 bits addresses. It also has a shift of 2 bits. 
 
 ![Data Memory](/Images/Data%20Memory.png)
 ![Data Memory External](/Images/External%20Data%20Memory.png)
 
 ## Control Unit:
-The Control Unit is a unit that controls the flow of the data, using flags that are activated or deactivated depending on the instruction that is being executed, affecting multiplexers along the Datapath. It reiceives the opcode of the instruction that comes from the Decoder and outputs the control signals that will be used by the other units of the architecture. The operations and the control signals are:
+The Control Unit is a unit that controls the flow of the data, using flags that are activated or deactivated depending on the instruction that is being executed, affecting multiplexers along the Datapath. It reiceives the opcode from the instruction that comes from the Decoder and outputs the control signals that will be used by the other units of the architecture. The operations and the control signals are:
 |Opcode|Instruction|          Control Signals          |AluOP|
 |------|-----------|-----------------------------------|-----|
 |000000|R-Type     |RegDst, WriteReg                   |00   |
